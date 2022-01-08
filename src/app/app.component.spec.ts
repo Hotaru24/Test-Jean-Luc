@@ -16,16 +16,14 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Test-Jean-Luc'`, () => {
+  it(`should convert number in the good word`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Test-Jean-Luc');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Test-Jean-Luc app is running!');
-  });
+    expect(app.numberToJeanLuc(3)).toBe('Jean');
+    expect(app.numberToJeanLuc(5)).toBe('Luc');
+    expect(app.numberToJeanLuc(30)).toBe('Jean-Luc');
+    expect(app.numberToJeanLuc(1)).toBe('n');
+  })
 });
+
+
